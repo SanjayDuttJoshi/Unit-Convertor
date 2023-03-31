@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+  </head>
+  <body class="p-2 bg-black">
+
+    
+
+        <div class="flex flex-col text-center px-12 justify-center mt-9" >
+       <u class="text-white">   <h1 class="text-white font-bold text-center text-xl mt-2 mb-12">UNIT CONVERTER</h1></u>
+    
+    
+ <input class="text-center py-4 font-bold text-lg" type="number" placeholder="enter a number" id="number"/>
+ 
+     <h1 class="text-white font-bold text-center text-lg mt-4">FROM</h1>
+ <select class=" bg-red-700 text-white py-4 mt-4" id="from">
+   <option value ="METER">METER</option>
+   <option value ="KILOMETER">KILOMETER</option>
+   <option value ="CENTIMETER">CENTIMETER</option>
+ </select> 
+  
+   <h1 class="text-white font-bold text-center text-lg mt-4">TO</h1>
+ <select class="bg-blue-700 text-white py-4 mt-2 " id="to" >
+    <option value = "KILOMETER">KILOMETER</option>
+    <option value = "METER">METER</option>
+    <option value = "CENTIMETER">CENTIMETER</option>
+ </select>
+ <button class="text-center py-3 mt-4 bg-red-700 text-white mx-20" onclick="result()">CONVERT</button>
+ 
+ 
+ <div class=" bg-black text-white text-center font-bold font-lg mt-12 text-xl " id="display"></div>
+ 
+ 
+ 
+ </div>
+
+
+
+
+<script>
+function result(){
+  var a = document.getElementById('number').value;
+  var b = document.getElementById('from').value;
+  var c = document.getElementById('to').value;
+              
+let bucket="";
+if (b =="METER" && c == "KILOMETER" ){
+      bucket = `${a*0.001 } km`;
+  } else if ( b == "METER" && c == "CENTIMETER"){
+     bucket = `${a*100 } cm`
+    }else if (b == "METER" && c == "METER"){
+      bucket = `${a } m`
+      }
+              
+              
+              
+              
+              
+if (b =="KILOMETER" && c == "KILOMETER" ){
+        bucket = `${a } km`
+} else if ( b == "KILOMETER" && c == "CENTIMETER"){
+      bucket = `${a*100000 } cm`
+    } else if ( b == "KILOMETER" && c == "METER"){
+      bucket = `${a*1000 } m`
+        }
+                    
+if ( b == "CENTIMETER" && c == "CENTIMETER"){
+      bucket = `${a } cm`
+}  else if ( b == "CENTIMETER" && c == "METER"){
+    bucket = `${a*.01 } m`
+  } else if ( b == "CENTIMETER" && c == "KILOMETER"){
+      bucket = `${a*.00001 } km`
+        }
+              
+              
+              
+             document.getElementById('display').innerHTML = bucket;
+}
+ 
+ 			
+ 			   
+ 			
+ 			
+ 			
+ 			</script>
+
+
+
+
+
+
+
+
+
+
+
+    
+  
+    <script type="module" src="/main.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
